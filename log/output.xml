@@ -1,0 +1,1306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.8.10 on linux)" generated="20220406 10:26:18.083" rpa="false" schemaversion="2">
+<suite id="s1" name="Tests" source="/home/tatianemartell/Área de Trabalho/Projetos/KdminhaOficina/AutomacaoKD-robot/maintenance-robot/tests">
+<suite id="s1-s1" name="CadastroDeUsuárioMotoristaTest" source="/home/tatianemartell/Área de Trabalho/Projetos/KdminhaOficina/AutomacaoKD-robot/maintenance-robot/tests/CadastroDeUsuárioMotoristaTest.robot">
+<test id="s1-s1-t1" name="Cenario01: Realizar Cadastro de novo usuário Motorista">
+<kw name="Iniciar teste no Sistema KD" library="BrowserPage" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL_HOST}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220406 10:26:18.494" level="INFO">Opening browser 'chrome' to base url 'http://portaloficinas.qa.zallpysw.com/pt'.</msg>
+<status status="PASS" starttime="20220406 10:26:18.494" endtime="20220406 10:26:25.987"/>
+</kw>
+<kw name="Verificar se o teste será executado no Mobile ou Desktop" library="BrowserPage">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Setar Width e Height para Mobile</arg>
+<arg>ELSE</arg>
+<arg>Setar Width e Height para Desktop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setar Width e Height para Desktop" library="BrowserPage">
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${BROWSER_CUSTOMER_WIDTH}</arg>
+<arg>${BROWSER_CUSTOMER_WIDTH_DESKTOP}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:25.991" level="INFO">${BROWSER_CUSTOMER_WIDTH} = 1366</msg>
+<status status="PASS" starttime="20220406 10:26:25.989" endtime="20220406 10:26:25.991"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${BROWSER_CUSTOMER_HEIGHT}</arg>
+<arg>${BROWSER_CUSTOMER_HEIGHT_DESKTOP}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:25.994" level="INFO">${BROWSER_CUSTOMER_HEIGHT} = 768</msg>
+<status status="PASS" starttime="20220406 10:26:25.991" endtime="20220406 10:26:25.994"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:25.988" endtime="20220406 10:26:25.994"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:25.988" endtime="20220406 10:26:25.994"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:25.988" endtime="20220406 10:26:25.994"/>
+</kw>
+<kw name="Setar Selenium e Window" library="BrowserPage">
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${BROWSER_CUSTOMER_WIDTH}</arg>
+<arg>${BROWSER_CUSTOMER_HEIGHT}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220406 10:26:25.995" endtime="20220406 10:26:26.102"/>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<arg>${TIME_TO_WAIT}</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" starttime="20220406 10:26:26.102" endtime="20220406 10:26:26.103"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>${TIME_OUT}</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20220406 10:26:26.103" endtime="20220406 10:26:26.104"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${TIME_SPEED}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20220406 10:26:26.104" endtime="20220406 10:26:26.104"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:25.994" endtime="20220406 10:26:26.104"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:18.493" endtime="20220406 10:26:26.104"/>
+</kw>
+<kw name="Acessar na pagina inicial Home Faça seu login" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${STATUS}</var>
+<arg>Verificação se há Cookies</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Verificação se há Cookies" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${aceitarCookies}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 10:26:26.105" endtime="20220406 10:26:30.150"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:26.105" endtime="20220406 10:26:30.150"/>
+</kw>
+<msg timestamp="20220406 10:26:30.151" level="INFO">${STATUS} = True</msg>
+<status status="PASS" starttime="20220406 10:26:26.105" endtime="20220406 10:26:30.151"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${STATUS}</arg>
+<arg>Clicar no Cookies</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Clicar no Cookies" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${aceitarCookies}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:26:30.154" level="INFO">Clicking element 'xpath:/html/body/div[1]/div[2]/div[4]/div[2]/div/button'.</msg>
+<status status="PASS" starttime="20220406 10:26:30.153" endtime="20220406 10:26:34.250"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:30.152" endtime="20220406 10:26:34.251"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:30.151" endtime="20220406 10:26:34.251"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Clicar Faça seu Login para Mobile</arg>
+<arg>ELSE</arg>
+<arg>Clicar Faça seu Login para Desktop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Clicar Faça seu Login para Desktop" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${façaSeuLogin}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 10:26:34.254" endtime="20220406 10:26:38.284"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${façaSeuLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:26:38.285" level="INFO">Clicking element 'xpath://*[@id="__next"]/div/div[2]/div[2]/div[3]/div[1]/label'.</msg>
+<status status="PASS" starttime="20220406 10:26:38.284" endtime="20220406 10:26:42.379"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:34.253" endtime="20220406 10:26:42.380"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:34.252" endtime="20220406 10:26:42.380"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:26.105" endtime="20220406 10:26:42.381"/>
+</kw>
+<kw name="Clicar em sou Cliente" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Clicar sou cliente Mobile</arg>
+<arg>ELSE</arg>
+<arg>Clicar sou cliente Desktop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Clicar sou cliente Desktop" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${souCliente}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 10:26:42.385" endtime="20220406 10:26:46.435"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${souCliente}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:26:46.438" level="INFO">Clicking element 'xpath://*[@id="im-client-button-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:26:46.436" endtime="20220406 10:26:50.563"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:42.384" endtime="20220406 10:26:50.564"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:42.383" endtime="20220406 10:26:50.564"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:42.381" endtime="20220406 10:26:50.565"/>
+</kw>
+<kw name="Clicar em Ainda não possui conta" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${naoPossuiConta}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:26:50.568" level="INFO">Clicking element 'xpath://*[@id="__next"]/div/div[2]/div/div[2]/div/form/div[7]/label'.</msg>
+<status status="PASS" starttime="20220406 10:26:50.567" endtime="20220406 10:26:54.703"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:50.565" endtime="20220406 10:26:54.703"/>
+</kw>
+<kw name="Informar nome e celular" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Gerar dados Faker" library="FakerComponent">
+<kw name="Postcode" library="FakerLibrary">
+<var>${cepFaker}</var>
+<doc>Randomly returns a postcode.
+:param formatted: True to allow formatted postcodes, else False (default True)
+:example formatted: '41224-212' '83992-291' '12324322'
+:example raw: '43920231' '34239530'</doc>
+<msg timestamp="20220406 10:26:54.707" level="INFO">${cepFaker} = 01360-773</msg>
+<status status="PASS" starttime="20220406 10:26:54.706" endtime="20220406 10:26:54.708"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cepFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.709" level="INFO">${cepFaker} = 01360-773</msg>
+<status status="PASS" starttime="20220406 10:26:54.708" endtime="20220406 10:26:54.709"/>
+</kw>
+<kw name="State Abbr" library="FakerLibrary">
+<var>${ufFaker}</var>
+<msg timestamp="20220406 10:26:54.710" level="INFO">${ufFaker} = SC</msg>
+<status status="PASS" starttime="20220406 10:26:54.710" endtime="20220406 10:26:54.710"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${ufFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.712" level="INFO">${ufFaker} = SC</msg>
+<status status="PASS" starttime="20220406 10:26:54.710" endtime="20220406 10:26:54.712"/>
+</kw>
+<kw name="City Suffix" library="FakerLibrary">
+<var>${bairroFaker}</var>
+<doc>:example 'town'</doc>
+<msg timestamp="20220406 10:26:54.712" level="INFO">${bairroFaker} = da Prata</msg>
+<status status="PASS" starttime="20220406 10:26:54.712" endtime="20220406 10:26:54.712"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${bairroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.713" level="INFO">${bairroFaker} = da Prata</msg>
+<status status="PASS" starttime="20220406 10:26:54.713" endtime="20220406 10:26:54.713"/>
+</kw>
+<kw name="Random Number" library="FakerLibrary">
+<var>${numeroFaker}</var>
+<doc>Generate a random integer according to the following rules:</doc>
+<msg timestamp="20220406 10:26:54.713" level="INFO">${numeroFaker} = 2685</msg>
+<status status="PASS" starttime="20220406 10:26:54.713" endtime="20220406 10:26:54.713"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numeroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.714" level="INFO">${numeroFaker} = 2685</msg>
+<status status="PASS" starttime="20220406 10:26:54.714" endtime="20220406 10:26:54.714"/>
+</kw>
+<kw name="Address" library="FakerLibrary">
+<var>${logradouroFaker}</var>
+<doc>:example '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<msg timestamp="20220406 10:26:54.715" level="INFO">${logradouroFaker} = Trecho de Melo, 57
+Santa Monica
+09865-839 da Paz do Galho / PI</msg>
+<status status="PASS" starttime="20220406 10:26:54.715" endtime="20220406 10:26:54.715"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${logradouroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.716" level="INFO">${logradouroFaker} = Trecho de Melo, 57
+Santa Monica
+09865-839 da Paz do Galho / PI</msg>
+<status status="PASS" starttime="20220406 10:26:54.715" endtime="20220406 10:26:54.716"/>
+</kw>
+<kw name="City" library="FakerLibrary">
+<var>${cidadeFaker}</var>
+<doc>:example 'Sashabury'</doc>
+<msg timestamp="20220406 10:26:54.717" level="INFO">${cidadeFaker} = Moreira das Flores</msg>
+<status status="PASS" starttime="20220406 10:26:54.716" endtime="20220406 10:26:54.717"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cidadeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.718" level="INFO">${cidadeFaker} = Moreira das Flores</msg>
+<status status="PASS" starttime="20220406 10:26:54.717" endtime="20220406 10:26:54.718"/>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<var>${nomeFaker}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20220406 10:26:54.718" level="INFO">${nomeFaker} = Rodrigo Correia</msg>
+<status status="PASS" starttime="20220406 10:26:54.718" endtime="20220406 10:26:54.718"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${nomeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.719" level="INFO">${nomeFaker} = Rodrigo Correia</msg>
+<status status="PASS" starttime="20220406 10:26:54.718" endtime="20220406 10:26:54.719"/>
+</kw>
+<kw name="Ean" library="FakerLibrary">
+<var>${cnpjFaker}</var>
+<doc>Generate an EAN barcode of the specified ``length``.</doc>
+<msg timestamp="20220406 10:26:54.719" level="INFO">${cnpjFaker} = 7098085631724</msg>
+<status status="PASS" starttime="20220406 10:26:54.719" endtime="20220406 10:26:54.719"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cnpjFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.720" level="INFO">${cnpjFaker} = 7098085631724</msg>
+<status status="PASS" starttime="20220406 10:26:54.719" endtime="20220406 10:26:54.720"/>
+</kw>
+<kw name="Word" library="FakerLibrary">
+<var>${wordFaker}</var>
+<doc>Generate a word.</doc>
+<msg timestamp="20220406 10:26:54.721" level="INFO">${wordFaker} = soluta</msg>
+<status status="PASS" starttime="20220406 10:26:54.720" endtime="20220406 10:26:54.721"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${wordFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.721" level="INFO">${wordFaker} = soluta</msg>
+<status status="PASS" starttime="20220406 10:26:54.721" endtime="20220406 10:26:54.722"/>
+</kw>
+<kw name="Pyint" library="FakerLibrary">
+<var>${valorFaker}</var>
+<msg timestamp="20220406 10:26:54.722" level="INFO">${valorFaker} = 2254</msg>
+<status status="PASS" starttime="20220406 10:26:54.722" endtime="20220406 10:26:54.722"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valorFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.723" level="INFO">${valorFaker} = 2254</msg>
+<status status="PASS" starttime="20220406 10:26:54.722" endtime="20220406 10:26:54.723"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${valor1Faker}</var>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:26:54.724" level="INFO">${valor1Faker} = 180</msg>
+<status status="PASS" starttime="20220406 10:26:54.723" endtime="20220406 10:26:54.724"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valor1Faker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.724" level="INFO">${valor1Faker} = 180</msg>
+<status status="PASS" starttime="20220406 10:26:54.724" endtime="20220406 10:26:54.724"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${valor2Faker}</var>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:26:54.725" level="INFO">${valor2Faker} = 448</msg>
+<status status="PASS" starttime="20220406 10:26:54.724" endtime="20220406 10:26:54.725"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valor2Faker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.726" level="INFO">${valor2Faker} = 448</msg>
+<status status="PASS" starttime="20220406 10:26:54.725" endtime="20220406 10:26:54.726"/>
+</kw>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${telefoneFaker}</var>
+<msg timestamp="20220406 10:26:54.726" level="INFO">${telefoneFaker} = 41 3176-6483</msg>
+<status status="PASS" starttime="20220406 10:26:54.726" endtime="20220406 10:26:54.726"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${telefoneFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.727" level="INFO">${telefoneFaker} = 41 3176-6483</msg>
+<status status="PASS" starttime="20220406 10:26:54.727" endtime="20220406 10:26:54.727"/>
+</kw>
+<kw name="Text" library="FakerLibrary">
+<var>${textoFaker}</var>
+<doc>Generate a text string.</doc>
+<msg timestamp="20220406 10:26:54.728" level="INFO">${textoFaker} = Voluptate quam iste atque. Numquam consectetur eaque eos placeat unde quae.</msg>
+<status status="PASS" starttime="20220406 10:26:54.727" endtime="20220406 10:26:54.728"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${textoFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.728" level="INFO">${textoFaker} = Voluptate quam iste atque. Numquam consectetur eaque eos placeat unde quae.</msg>
+<status status="PASS" starttime="20220406 10:26:54.728" endtime="20220406 10:26:54.728"/>
+</kw>
+<kw name="Ssn" library="FakerLibrary">
+<var>${cpfFaker}</var>
+<msg timestamp="20220406 10:26:54.729" level="INFO">${cpfFaker} = 38920751404</msg>
+<status status="PASS" starttime="20220406 10:26:54.728" endtime="20220406 10:26:54.729"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cpfFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.729" level="INFO">${cpfFaker} = 38920751404</msg>
+<status status="PASS" starttime="20220406 10:26:54.729" endtime="20220406 10:26:54.729"/>
+</kw>
+<kw name="Random Digit Not Null" library="FakerLibrary">
+<var>${numZeroAnoveFaker}</var>
+<doc>Generate a random non-zero digit (1 to 9).</doc>
+<msg timestamp="20220406 10:26:54.729" level="INFO">${numZeroAnoveFaker} = 9</msg>
+<status status="PASS" starttime="20220406 10:26:54.729" endtime="20220406 10:26:54.729"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numZeroAnoveFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.730" level="INFO">${numZeroAnoveFaker} = 9</msg>
+<status status="PASS" starttime="20220406 10:26:54.730" endtime="20220406 10:26:54.730"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${numRandomicoFaker}</var>
+<arg>1</arg>
+<arg>100</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:26:54.730" level="INFO">${numRandomicoFaker} = 86</msg>
+<status status="PASS" starttime="20220406 10:26:54.730" endtime="20220406 10:26:54.730"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numRandomicoFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.731" level="INFO">${numRandomicoFaker} = 86</msg>
+<status status="PASS" starttime="20220406 10:26:54.731" endtime="20220406 10:26:54.731"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${numUmACemFaker}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:26:54.731" level="INFO">${numUmACemFaker} = 8702</msg>
+<status status="PASS" starttime="20220406 10:26:54.731" endtime="20220406 10:26:54.731"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numUmACemFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.732" level="INFO">${numUmACemFaker} = 8702</msg>
+<status status="PASS" starttime="20220406 10:26:54.731" endtime="20220406 10:26:54.732"/>
+</kw>
+<kw name="License Plate" library="FakerLibrary">
+<var>${placaFaker}</var>
+<doc>Generate a license plate.</doc>
+<msg timestamp="20220406 10:26:54.732" level="INFO">${placaFaker} = ODE-1655</msg>
+<status status="PASS" starttime="20220406 10:26:54.732" endtime="20220406 10:26:54.732"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${placaFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.733" level="INFO">${placaFaker} = ODE-1655</msg>
+<status status="PASS" starttime="20220406 10:26:54.732" endtime="20220406 10:26:54.733"/>
+</kw>
+<kw name="Latitude" library="FakerLibrary">
+<var>${latitudeFaker}</var>
+<msg timestamp="20220406 10:26:54.733" level="INFO">${latitudeFaker} = -84.9433085</msg>
+<status status="PASS" starttime="20220406 10:26:54.733" endtime="20220406 10:26:54.733"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${latitudeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.734" level="INFO">${latitudeFaker} = -84.9433085</msg>
+<status status="PASS" starttime="20220406 10:26:54.733" endtime="20220406 10:26:54.734"/>
+</kw>
+<kw name="Longitude" library="FakerLibrary">
+<var>${longitudeFaker}</var>
+<msg timestamp="20220406 10:26:54.734" level="INFO">${longitudeFaker} = 31.611435</msg>
+<status status="PASS" starttime="20220406 10:26:54.734" endtime="20220406 10:26:54.734"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${longitudeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.734" level="INFO">${longitudeFaker} = 31.611435</msg>
+<status status="PASS" starttime="20220406 10:26:54.734" endtime="20220406 10:26:54.734"/>
+</kw>
+<kw name="Rg" library="FakerLibrary">
+<var>${rgFaker}</var>
+<doc>Brazilian RG, return plain numbers.
+Check:  https://www.ngmatematica.com/2014/02/como-determinar-o-digito-verificador-do.html</doc>
+<msg timestamp="20220406 10:26:54.735" level="INFO">${rgFaker} = 261470838</msg>
+<status status="PASS" starttime="20220406 10:26:54.735" endtime="20220406 10:26:54.735"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${rgFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:26:54.735" level="INFO">${rgFaker} = 261470838</msg>
+<status status="PASS" starttime="20220406 10:26:54.735" endtime="20220406 10:26:54.735"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:54.705" endtime="20220406 10:26:54.735"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${nome}</arg>
+<arg>${nomeFaker}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:26:54.736" level="INFO">Typing text 'Rodrigo Correia' into text field 'xpath://*[@id="styledlogintextfield-sidebarregister-name-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:26:54.736" endtime="20220406 10:27:00.917"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${celular}</arg>
+<arg>${CELULAR_MOTORISTA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:00.919" level="INFO">Typing text '51983108310' into text field 'xpath://*[@id="styledlogintextfield-sidebarregister-phone-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:00.918" endtime="20220406 10:27:07.094"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:54.704" endtime="20220406 10:27:07.095"/>
+</kw>
+<kw name="Informar Email, senha e confirmação de senha" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Gerar dados Faker" library="FakerComponent">
+<kw name="Postcode" library="FakerLibrary">
+<var>${cepFaker}</var>
+<doc>Randomly returns a postcode.
+:param formatted: True to allow formatted postcodes, else False (default True)
+:example formatted: '41224-212' '83992-291' '12324322'
+:example raw: '43920231' '34239530'</doc>
+<msg timestamp="20220406 10:27:07.096" level="INFO">${cepFaker} = 59195-295</msg>
+<status status="PASS" starttime="20220406 10:27:07.096" endtime="20220406 10:27:07.096"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cepFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.097" level="INFO">${cepFaker} = 59195-295</msg>
+<status status="PASS" starttime="20220406 10:27:07.096" endtime="20220406 10:27:07.097"/>
+</kw>
+<kw name="State Abbr" library="FakerLibrary">
+<var>${ufFaker}</var>
+<msg timestamp="20220406 10:27:07.097" level="INFO">${ufFaker} = ES</msg>
+<status status="PASS" starttime="20220406 10:27:07.097" endtime="20220406 10:27:07.097"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${ufFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.098" level="INFO">${ufFaker} = ES</msg>
+<status status="PASS" starttime="20220406 10:27:07.097" endtime="20220406 10:27:07.098"/>
+</kw>
+<kw name="City Suffix" library="FakerLibrary">
+<var>${bairroFaker}</var>
+<doc>:example 'town'</doc>
+<msg timestamp="20220406 10:27:07.098" level="INFO">${bairroFaker} = do Oeste</msg>
+<status status="PASS" starttime="20220406 10:27:07.098" endtime="20220406 10:27:07.098"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${bairroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.099" level="INFO">${bairroFaker} = do Oeste</msg>
+<status status="PASS" starttime="20220406 10:27:07.098" endtime="20220406 10:27:07.099"/>
+</kw>
+<kw name="Random Number" library="FakerLibrary">
+<var>${numeroFaker}</var>
+<doc>Generate a random integer according to the following rules:</doc>
+<msg timestamp="20220406 10:27:07.099" level="INFO">${numeroFaker} = 2567871</msg>
+<status status="PASS" starttime="20220406 10:27:07.099" endtime="20220406 10:27:07.099"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numeroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.100" level="INFO">${numeroFaker} = 2567871</msg>
+<status status="PASS" starttime="20220406 10:27:07.099" endtime="20220406 10:27:07.100"/>
+</kw>
+<kw name="Address" library="FakerLibrary">
+<var>${logradouroFaker}</var>
+<doc>:example '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<msg timestamp="20220406 10:27:07.100" level="INFO">${logradouroFaker} = Largo Ana Luiza Ramos, 70
+Nova Floresta
+84859658 da Mota do Oeste / SP</msg>
+<status status="PASS" starttime="20220406 10:27:07.100" endtime="20220406 10:27:07.100"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${logradouroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.101" level="INFO">${logradouroFaker} = Largo Ana Luiza Ramos, 70
+Nova Floresta
+84859658 da Mota do Oeste / SP</msg>
+<status status="PASS" starttime="20220406 10:27:07.101" endtime="20220406 10:27:07.101"/>
+</kw>
+<kw name="City" library="FakerLibrary">
+<var>${cidadeFaker}</var>
+<doc>:example 'Sashabury'</doc>
+<msg timestamp="20220406 10:27:07.102" level="INFO">${cidadeFaker} = Ramos</msg>
+<status status="PASS" starttime="20220406 10:27:07.101" endtime="20220406 10:27:07.102"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cidadeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.102" level="INFO">${cidadeFaker} = Ramos</msg>
+<status status="PASS" starttime="20220406 10:27:07.102" endtime="20220406 10:27:07.103"/>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<var>${nomeFaker}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20220406 10:27:07.103" level="INFO">${nomeFaker} = Yuri Silva</msg>
+<status status="PASS" starttime="20220406 10:27:07.103" endtime="20220406 10:27:07.103"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${nomeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.104" level="INFO">${nomeFaker} = Yuri Silva</msg>
+<status status="PASS" starttime="20220406 10:27:07.103" endtime="20220406 10:27:07.104"/>
+</kw>
+<kw name="Ean" library="FakerLibrary">
+<var>${cnpjFaker}</var>
+<doc>Generate an EAN barcode of the specified ``length``.</doc>
+<msg timestamp="20220406 10:27:07.105" level="INFO">${cnpjFaker} = 9644345485330</msg>
+<status status="PASS" starttime="20220406 10:27:07.104" endtime="20220406 10:27:07.105"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cnpjFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.106" level="INFO">${cnpjFaker} = 9644345485330</msg>
+<status status="PASS" starttime="20220406 10:27:07.105" endtime="20220406 10:27:07.106"/>
+</kw>
+<kw name="Word" library="FakerLibrary">
+<var>${wordFaker}</var>
+<doc>Generate a word.</doc>
+<msg timestamp="20220406 10:27:07.106" level="INFO">${wordFaker} = expedita</msg>
+<status status="PASS" starttime="20220406 10:27:07.106" endtime="20220406 10:27:07.106"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${wordFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.107" level="INFO">${wordFaker} = expedita</msg>
+<status status="PASS" starttime="20220406 10:27:07.107" endtime="20220406 10:27:07.107"/>
+</kw>
+<kw name="Pyint" library="FakerLibrary">
+<var>${valorFaker}</var>
+<msg timestamp="20220406 10:27:07.108" level="INFO">${valorFaker} = 4734</msg>
+<status status="PASS" starttime="20220406 10:27:07.107" endtime="20220406 10:27:07.108"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valorFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.108" level="INFO">${valorFaker} = 4734</msg>
+<status status="PASS" starttime="20220406 10:27:07.108" endtime="20220406 10:27:07.108"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${valor1Faker}</var>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:27:07.109" level="INFO">${valor1Faker} = 101</msg>
+<status status="PASS" starttime="20220406 10:27:07.109" endtime="20220406 10:27:07.109"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valor1Faker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.110" level="INFO">${valor1Faker} = 101</msg>
+<status status="PASS" starttime="20220406 10:27:07.109" endtime="20220406 10:27:07.110"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${valor2Faker}</var>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:27:07.111" level="INFO">${valor2Faker} = 861</msg>
+<status status="PASS" starttime="20220406 10:27:07.110" endtime="20220406 10:27:07.111"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valor2Faker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.111" level="INFO">${valor2Faker} = 861</msg>
+<status status="PASS" starttime="20220406 10:27:07.111" endtime="20220406 10:27:07.111"/>
+</kw>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${telefoneFaker}</var>
+<msg timestamp="20220406 10:27:07.112" level="INFO">${telefoneFaker} = 81 3393-9063</msg>
+<status status="PASS" starttime="20220406 10:27:07.112" endtime="20220406 10:27:07.112"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${telefoneFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.113" level="INFO">${telefoneFaker} = 81 3393-9063</msg>
+<status status="PASS" starttime="20220406 10:27:07.112" endtime="20220406 10:27:07.113"/>
+</kw>
+<kw name="Text" library="FakerLibrary">
+<var>${textoFaker}</var>
+<doc>Generate a text string.</doc>
+<msg timestamp="20220406 10:27:07.113" level="INFO">${textoFaker} = Unde numquam quo architecto ratione. Occaecati reiciendis iure sint accusamus soluta temporibus. Illo placeat possimus eum illum porro.</msg>
+<status status="PASS" starttime="20220406 10:27:07.113" endtime="20220406 10:27:07.113"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${textoFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.114" level="INFO">${textoFaker} = Unde numquam quo architecto ratione. Occaecati reiciendis iure sint accusamus soluta temporibus. Illo placeat possimus eum illum porro.</msg>
+<status status="PASS" starttime="20220406 10:27:07.114" endtime="20220406 10:27:07.114"/>
+</kw>
+<kw name="Ssn" library="FakerLibrary">
+<var>${cpfFaker}</var>
+<msg timestamp="20220406 10:27:07.115" level="INFO">${cpfFaker} = 48530672135</msg>
+<status status="PASS" starttime="20220406 10:27:07.115" endtime="20220406 10:27:07.115"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cpfFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.116" level="INFO">${cpfFaker} = 48530672135</msg>
+<status status="PASS" starttime="20220406 10:27:07.115" endtime="20220406 10:27:07.116"/>
+</kw>
+<kw name="Random Digit Not Null" library="FakerLibrary">
+<var>${numZeroAnoveFaker}</var>
+<doc>Generate a random non-zero digit (1 to 9).</doc>
+<msg timestamp="20220406 10:27:07.117" level="INFO">${numZeroAnoveFaker} = 9</msg>
+<status status="PASS" starttime="20220406 10:27:07.117" endtime="20220406 10:27:07.117"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numZeroAnoveFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.118" level="INFO">${numZeroAnoveFaker} = 9</msg>
+<status status="PASS" starttime="20220406 10:27:07.118" endtime="20220406 10:27:07.118"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${numRandomicoFaker}</var>
+<arg>1</arg>
+<arg>100</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:27:07.119" level="INFO">${numRandomicoFaker} = 68</msg>
+<status status="PASS" starttime="20220406 10:27:07.119" endtime="20220406 10:27:07.119"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numRandomicoFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.120" level="INFO">${numRandomicoFaker} = 68</msg>
+<status status="PASS" starttime="20220406 10:27:07.119" endtime="20220406 10:27:07.120"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${numUmACemFaker}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:27:07.121" level="INFO">${numUmACemFaker} = 8256</msg>
+<status status="PASS" starttime="20220406 10:27:07.120" endtime="20220406 10:27:07.121"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numUmACemFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.121" level="INFO">${numUmACemFaker} = 8256</msg>
+<status status="PASS" starttime="20220406 10:27:07.121" endtime="20220406 10:27:07.121"/>
+</kw>
+<kw name="License Plate" library="FakerLibrary">
+<var>${placaFaker}</var>
+<doc>Generate a license plate.</doc>
+<msg timestamp="20220406 10:27:07.122" level="INFO">${placaFaker} = YQQ-6093</msg>
+<status status="PASS" starttime="20220406 10:27:07.122" endtime="20220406 10:27:07.122"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${placaFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.123" level="INFO">${placaFaker} = YQQ-6093</msg>
+<status status="PASS" starttime="20220406 10:27:07.122" endtime="20220406 10:27:07.123"/>
+</kw>
+<kw name="Latitude" library="FakerLibrary">
+<var>${latitudeFaker}</var>
+<msg timestamp="20220406 10:27:07.123" level="INFO">${latitudeFaker} = -71.414708</msg>
+<status status="PASS" starttime="20220406 10:27:07.123" endtime="20220406 10:27:07.123"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${latitudeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.124" level="INFO">${latitudeFaker} = -71.414708</msg>
+<status status="PASS" starttime="20220406 10:27:07.123" endtime="20220406 10:27:07.124"/>
+</kw>
+<kw name="Longitude" library="FakerLibrary">
+<var>${longitudeFaker}</var>
+<msg timestamp="20220406 10:27:07.124" level="INFO">${longitudeFaker} = -175.696598</msg>
+<status status="PASS" starttime="20220406 10:27:07.124" endtime="20220406 10:27:07.124"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${longitudeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.125" level="INFO">${longitudeFaker} = -175.696598</msg>
+<status status="PASS" starttime="20220406 10:27:07.124" endtime="20220406 10:27:07.125"/>
+</kw>
+<kw name="Rg" library="FakerLibrary">
+<var>${rgFaker}</var>
+<doc>Brazilian RG, return plain numbers.
+Check:  https://www.ngmatematica.com/2014/02/como-determinar-o-digito-verificador-do.html</doc>
+<msg timestamp="20220406 10:27:07.125" level="INFO">${rgFaker} = 861045233</msg>
+<status status="PASS" starttime="20220406 10:27:07.125" endtime="20220406 10:27:07.125"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${rgFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:07.126" level="INFO">${rgFaker} = 861045233</msg>
+<status status="PASS" starttime="20220406 10:27:07.126" endtime="20220406 10:27:07.126"/>
+</kw>
+<status status="PASS" starttime="20220406 10:27:07.095" endtime="20220406 10:27:07.126"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${emailFormatado}</var>
+<arg>SEPARATOR=</arg>
+<arg>${wordFaker}</arg>
+<arg>${DOMINIO}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220406 10:27:07.127" level="INFO">${emailFormatado} = expedita.robotframework@yopmail.com</msg>
+<status status="PASS" starttime="20220406 10:27:07.126" endtime="20220406 10:27:07.127"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${email}</arg>
+<arg>${emailFormatado}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:07.127" level="INFO">Typing text 'expedita.robotframework@yopmail.com' into text field 'xpath://*[@id="styledlogintextfield-sidebarregister-email-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:07.127" endtime="20220406 10:27:13.319"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${senha}</arg>
+<arg>${SENHA_MOTORISTA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:13.321" level="INFO">Typing text 'teste123' into text field 'xpath://*[@id="styledlogintextfield-sidebarregister-pass-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:13.320" endtime="20220406 10:27:19.528"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${confirmaSenha}</arg>
+<arg>${SENHA_MOTORISTA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:19.530" level="INFO">Typing text 'teste123' into text field 'xpath://*[@id="styledlogintextfield-sidebarregister-confirmpass-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:19.529" endtime="20220406 10:27:25.708"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${EMAIL_MOTORISTA}</arg>
+<arg>${emailFormatado}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:27:25.710" level="INFO">${EMAIL_MOTORISTA} = expedita.robotframework@yopmail.com</msg>
+<status status="PASS" starttime="20220406 10:27:25.708" endtime="20220406 10:27:25.710"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${ciarConta}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:25.712" level="INFO">Clicking element 'xpath://*[@id="styledloginbutton-sidebarregister-create-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:25.711" endtime="20220406 10:27:29.854"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${EMAIL_MOTORISTA}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220406 10:27:29.855" endtime="20220406 10:27:29.856"/>
+</kw>
+<status status="PASS" starttime="20220406 10:27:07.095" endtime="20220406 10:27:29.857"/>
+</kw>
+<kw name="Acessar a conta com Email e Senha" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${logarComEmail}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:29.859" level="INFO">Clicking element 'xpath://*[@id="login-form-email-input-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:29.858" endtime="20220406 10:27:35.240"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${logarComEmail}</arg>
+<arg>${EMAIL_MOTORISTA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:35.242" level="INFO">Typing text 'expedita.robotframework@yopmail.com' into text field 'xpath://*[@id="login-form-email-input-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:35.241" endtime="20220406 10:27:41.398"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${logarComSenha}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:41.398" level="INFO">Clicking element 'xpath://*[@id="login-form-pass-input-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:41.398" endtime="20220406 10:27:45.521"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${logarComSenha}</arg>
+<arg>${SENHA_MOTORISTA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:45.523" level="INFO">Typing text 'teste123' into text field 'xpath://*[@id="login-form-pass-input-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:45.522" endtime="20220406 10:27:51.707"/>
+</kw>
+<kw name="Clicar em Acessar a Conta" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${acessarConta}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 10:27:51.709" endtime="20220406 10:27:55.751"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${acessarConta}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:55.752" level="INFO">Clicking element 'xpath:/html//button[@id='login-form-login-button-id']'.</msg>
+<status status="PASS" starttime="20220406 10:27:55.751" endtime="20220406 10:27:59.848"/>
+</kw>
+<status status="PASS" starttime="20220406 10:27:51.708" endtime="20220406 10:27:59.849"/>
+</kw>
+<status status="PASS" starttime="20220406 10:27:29.857" endtime="20220406 10:27:59.849"/>
+</kw>
+<kw name="Aceitar o Termo de adesão TiketLog" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${termoAdesao}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:27:59.854" level="INFO">Clicking element 'xpath://*[@id="agree-button-user-login-form-id"]'.</msg>
+<status status="PASS" starttime="20220406 10:27:59.852" endtime="20220406 10:28:04.746"/>
+</kw>
+<status status="PASS" starttime="20220406 10:27:59.850" endtime="20220406 10:28:04.747"/>
+</kw>
+<kw name="Realizar o cadastro do Motorista" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Gerar dados Faker" library="FakerComponent">
+<kw name="Postcode" library="FakerLibrary">
+<var>${cepFaker}</var>
+<doc>Randomly returns a postcode.
+:param formatted: True to allow formatted postcodes, else False (default True)
+:example formatted: '41224-212' '83992-291' '12324322'
+:example raw: '43920231' '34239530'</doc>
+<msg timestamp="20220406 10:28:04.751" level="INFO">${cepFaker} = 54905336</msg>
+<status status="PASS" starttime="20220406 10:28:04.750" endtime="20220406 10:28:04.751"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cepFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.752" level="INFO">${cepFaker} = 54905336</msg>
+<status status="PASS" starttime="20220406 10:28:04.751" endtime="20220406 10:28:04.752"/>
+</kw>
+<kw name="State Abbr" library="FakerLibrary">
+<var>${ufFaker}</var>
+<msg timestamp="20220406 10:28:04.752" level="INFO">${ufFaker} = SC</msg>
+<status status="PASS" starttime="20220406 10:28:04.752" endtime="20220406 10:28:04.752"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${ufFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.753" level="INFO">${ufFaker} = SC</msg>
+<status status="PASS" starttime="20220406 10:28:04.752" endtime="20220406 10:28:04.753"/>
+</kw>
+<kw name="City Suffix" library="FakerLibrary">
+<var>${bairroFaker}</var>
+<doc>:example 'town'</doc>
+<msg timestamp="20220406 10:28:04.753" level="INFO">${bairroFaker} = do Norte</msg>
+<status status="PASS" starttime="20220406 10:28:04.753" endtime="20220406 10:28:04.753"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${bairroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.754" level="INFO">${bairroFaker} = do Norte</msg>
+<status status="PASS" starttime="20220406 10:28:04.753" endtime="20220406 10:28:04.754"/>
+</kw>
+<kw name="Random Number" library="FakerLibrary">
+<var>${numeroFaker}</var>
+<doc>Generate a random integer according to the following rules:</doc>
+<msg timestamp="20220406 10:28:04.754" level="INFO">${numeroFaker} = 72222</msg>
+<status status="PASS" starttime="20220406 10:28:04.754" endtime="20220406 10:28:04.754"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numeroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.755" level="INFO">${numeroFaker} = 72222</msg>
+<status status="PASS" starttime="20220406 10:28:04.754" endtime="20220406 10:28:04.755"/>
+</kw>
+<kw name="Address" library="FakerLibrary">
+<var>${logradouroFaker}</var>
+<doc>:example '791 Crist Parks, Sashabury, IL 86039-9874'</doc>
+<msg timestamp="20220406 10:28:04.755" level="INFO">${logradouroFaker} = Rua Stella da Paz, 52
+Serra Do Curral
+74093-839 da Paz / RO</msg>
+<status status="PASS" starttime="20220406 10:28:04.755" endtime="20220406 10:28:04.755"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${logradouroFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.756" level="INFO">${logradouroFaker} = Rua Stella da Paz, 52
+Serra Do Curral
+74093-839 da Paz / RO</msg>
+<status status="PASS" starttime="20220406 10:28:04.755" endtime="20220406 10:28:04.756"/>
+</kw>
+<kw name="City" library="FakerLibrary">
+<var>${cidadeFaker}</var>
+<doc>:example 'Sashabury'</doc>
+<msg timestamp="20220406 10:28:04.756" level="INFO">${cidadeFaker} = Rezende</msg>
+<status status="PASS" starttime="20220406 10:28:04.756" endtime="20220406 10:28:04.756"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cidadeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.757" level="INFO">${cidadeFaker} = Rezende</msg>
+<status status="PASS" starttime="20220406 10:28:04.756" endtime="20220406 10:28:04.757"/>
+</kw>
+<kw name="Name" library="FakerLibrary">
+<var>${nomeFaker}</var>
+<doc>:example 'John Doe'</doc>
+<msg timestamp="20220406 10:28:04.758" level="INFO">${nomeFaker} = Antônio Nascimento</msg>
+<status status="PASS" starttime="20220406 10:28:04.757" endtime="20220406 10:28:04.758"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${nomeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.758" level="INFO">${nomeFaker} = Antônio Nascimento</msg>
+<status status="PASS" starttime="20220406 10:28:04.758" endtime="20220406 10:28:04.758"/>
+</kw>
+<kw name="Ean" library="FakerLibrary">
+<var>${cnpjFaker}</var>
+<doc>Generate an EAN barcode of the specified ``length``.</doc>
+<msg timestamp="20220406 10:28:04.759" level="INFO">${cnpjFaker} = 6692305005756</msg>
+<status status="PASS" starttime="20220406 10:28:04.759" endtime="20220406 10:28:04.759"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cnpjFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.760" level="INFO">${cnpjFaker} = 6692305005756</msg>
+<status status="PASS" starttime="20220406 10:28:04.759" endtime="20220406 10:28:04.760"/>
+</kw>
+<kw name="Word" library="FakerLibrary">
+<var>${wordFaker}</var>
+<doc>Generate a word.</doc>
+<msg timestamp="20220406 10:28:04.760" level="INFO">${wordFaker} = architecto</msg>
+<status status="PASS" starttime="20220406 10:28:04.760" endtime="20220406 10:28:04.760"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${wordFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.761" level="INFO">${wordFaker} = architecto</msg>
+<status status="PASS" starttime="20220406 10:28:04.761" endtime="20220406 10:28:04.761"/>
+</kw>
+<kw name="Pyint" library="FakerLibrary">
+<var>${valorFaker}</var>
+<msg timestamp="20220406 10:28:04.762" level="INFO">${valorFaker} = 4869</msg>
+<status status="PASS" starttime="20220406 10:28:04.762" endtime="20220406 10:28:04.762"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valorFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.763" level="INFO">${valorFaker} = 4869</msg>
+<status status="PASS" starttime="20220406 10:28:04.762" endtime="20220406 10:28:04.763"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${valor1Faker}</var>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:28:04.763" level="INFO">${valor1Faker} = 594</msg>
+<status status="PASS" starttime="20220406 10:28:04.763" endtime="20220406 10:28:04.763"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valor1Faker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.764" level="INFO">${valor1Faker} = 594</msg>
+<status status="PASS" starttime="20220406 10:28:04.764" endtime="20220406 10:28:04.764"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${valor2Faker}</var>
+<arg>100</arg>
+<arg>1000</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:28:04.764" level="INFO">${valor2Faker} = 539</msg>
+<status status="PASS" starttime="20220406 10:28:04.764" endtime="20220406 10:28:04.764"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${valor2Faker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.765" level="INFO">${valor2Faker} = 539</msg>
+<status status="PASS" starttime="20220406 10:28:04.765" endtime="20220406 10:28:04.765"/>
+</kw>
+<kw name="Phone Number" library="FakerLibrary">
+<var>${telefoneFaker}</var>
+<msg timestamp="20220406 10:28:04.766" level="INFO">${telefoneFaker} = +55 (031) 7216-5212</msg>
+<status status="PASS" starttime="20220406 10:28:04.765" endtime="20220406 10:28:04.766"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${telefoneFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.766" level="INFO">${telefoneFaker} = +55 (031) 7216-5212</msg>
+<status status="PASS" starttime="20220406 10:28:04.766" endtime="20220406 10:28:04.766"/>
+</kw>
+<kw name="Text" library="FakerLibrary">
+<var>${textoFaker}</var>
+<doc>Generate a text string.</doc>
+<msg timestamp="20220406 10:28:04.767" level="INFO">${textoFaker} = Provident asperiores illum dolor ut tenetur. Mollitia a necessitatibus consequatur a. Rerum provident veniam sint aliquam sunt aliquam. Corrupti deserunt dolorum reiciendis est ad nemo officiis.</msg>
+<status status="PASS" starttime="20220406 10:28:04.766" endtime="20220406 10:28:04.767"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${textoFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.767" level="INFO">${textoFaker} = Provident asperiores illum dolor ut tenetur. Mollitia a necessitatibus consequatur a. Rerum provident veniam sint aliquam sunt aliquam. Corrupti deserunt dolorum reiciendis est ad nemo officiis.</msg>
+<status status="PASS" starttime="20220406 10:28:04.767" endtime="20220406 10:28:04.767"/>
+</kw>
+<kw name="Ssn" library="FakerLibrary">
+<var>${cpfFaker}</var>
+<msg timestamp="20220406 10:28:04.768" level="INFO">${cpfFaker} = 87103625921</msg>
+<status status="PASS" starttime="20220406 10:28:04.767" endtime="20220406 10:28:04.768"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${cpfFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.768" level="INFO">${cpfFaker} = 87103625921</msg>
+<status status="PASS" starttime="20220406 10:28:04.768" endtime="20220406 10:28:04.768"/>
+</kw>
+<kw name="Random Digit Not Null" library="FakerLibrary">
+<var>${numZeroAnoveFaker}</var>
+<doc>Generate a random non-zero digit (1 to 9).</doc>
+<msg timestamp="20220406 10:28:04.769" level="INFO">${numZeroAnoveFaker} = 6</msg>
+<status status="PASS" starttime="20220406 10:28:04.768" endtime="20220406 10:28:04.769"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numZeroAnoveFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.769" level="INFO">${numZeroAnoveFaker} = 6</msg>
+<status status="PASS" starttime="20220406 10:28:04.769" endtime="20220406 10:28:04.769"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${numRandomicoFaker}</var>
+<arg>1</arg>
+<arg>100</arg>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:28:04.770" level="INFO">${numRandomicoFaker} = 47</msg>
+<status status="PASS" starttime="20220406 10:28:04.769" endtime="20220406 10:28:04.770"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numRandomicoFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.770" level="INFO">${numRandomicoFaker} = 47</msg>
+<status status="PASS" starttime="20220406 10:28:04.770" endtime="20220406 10:28:04.770"/>
+</kw>
+<kw name="Random Int" library="FakerLibrary">
+<var>${numUmACemFaker}</var>
+<doc>Generate a random integer between two integers ``min`` and ``max`` inclusive
+while observing the provided ``step`` value.</doc>
+<msg timestamp="20220406 10:28:04.770" level="INFO">${numUmACemFaker} = 2440</msg>
+<status status="PASS" starttime="20220406 10:28:04.770" endtime="20220406 10:28:04.771"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${numUmACemFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.771" level="INFO">${numUmACemFaker} = 2440</msg>
+<status status="PASS" starttime="20220406 10:28:04.771" endtime="20220406 10:28:04.771"/>
+</kw>
+<kw name="License Plate" library="FakerLibrary">
+<var>${placaFaker}</var>
+<doc>Generate a license plate.</doc>
+<msg timestamp="20220406 10:28:04.772" level="INFO">${placaFaker} = AKA-6980</msg>
+<status status="PASS" starttime="20220406 10:28:04.771" endtime="20220406 10:28:04.772"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${placaFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.772" level="INFO">${placaFaker} = AKA-6980</msg>
+<status status="PASS" starttime="20220406 10:28:04.772" endtime="20220406 10:28:04.772"/>
+</kw>
+<kw name="Latitude" library="FakerLibrary">
+<var>${latitudeFaker}</var>
+<msg timestamp="20220406 10:28:04.772" level="INFO">${latitudeFaker} = -34.2671765</msg>
+<status status="PASS" starttime="20220406 10:28:04.772" endtime="20220406 10:28:04.772"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${latitudeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.773" level="INFO">${latitudeFaker} = -34.2671765</msg>
+<status status="PASS" starttime="20220406 10:28:04.773" endtime="20220406 10:28:04.773"/>
+</kw>
+<kw name="Longitude" library="FakerLibrary">
+<var>${longitudeFaker}</var>
+<msg timestamp="20220406 10:28:04.773" level="INFO">${longitudeFaker} = -18.022966</msg>
+<status status="PASS" starttime="20220406 10:28:04.773" endtime="20220406 10:28:04.773"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${longitudeFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.774" level="INFO">${longitudeFaker} = -18.022966</msg>
+<status status="PASS" starttime="20220406 10:28:04.773" endtime="20220406 10:28:04.774"/>
+</kw>
+<kw name="Rg" library="FakerLibrary">
+<var>${rgFaker}</var>
+<doc>Brazilian RG, return plain numbers.
+Check:  https://www.ngmatematica.com/2014/02/como-determinar-o-digito-verificador-do.html</doc>
+<msg timestamp="20220406 10:28:04.774" level="INFO">${rgFaker} = 468723055</msg>
+<status status="PASS" starttime="20220406 10:28:04.774" endtime="20220406 10:28:04.774"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${rgFaker}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220406 10:28:04.774" level="INFO">${rgFaker} = 468723055</msg>
+<status status="PASS" starttime="20220406 10:28:04.774" endtime="20220406 10:28:04.774"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:04.749" endtime="20220406 10:28:04.775"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Clicar menu area restrita no mobile</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20220406 10:28:04.775" endtime="20220406 10:28:04.775"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Clicar em Meu Perfil no Mobile</arg>
+<arg>ELSE</arg>
+<arg>Clicar em Meu Perfil no Desktop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Clicar em Meu Perfil no Desktop" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${meuPerfil}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:04.776" level="INFO">Clicking element 'xpath://*[@id="menu-menuTitleClientProfile"]'.</msg>
+<status status="PASS" starttime="20220406 10:28:04.776" endtime="20220406 10:28:08.867"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:04.775" endtime="20220406 10:28:08.868"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:04.775" endtime="20220406 10:28:08.868"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${cpf}</arg>
+<arg>${cpfFaker}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:08.869" level="INFO">Typing text '87103625921' into text field 'xpath://*[@id="__next"]/div/div[2]/main/div/div/form/main/div[3]/input'.</msg>
+<status status="PASS" starttime="20220406 10:28:08.868" endtime="20220406 10:28:15.079"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${cep}</arg>
+<arg>${cepFaker}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:15.081" level="INFO">Typing text '54905336' into text field 'xpath://*[@id="__next"]/div/div[2]/main/div/div/form/main/div[3]/input'.</msg>
+<status status="PASS" starttime="20220406 10:28:15.080" endtime="20220406 10:28:21.255"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${uf}</arg>
+<arg>${ufFaker}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:21.257" level="INFO">Typing text 'SC' into text field 'xpath://*[@id="__next"]/div/div[2]/main/div/div/form/main/div[4]/div[2]/div[2]/input'.</msg>
+<status status="PASS" starttime="20220406 10:28:21.256" endtime="20220406 10:28:27.479"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${cidade}</arg>
+<arg>${cidadeFaker}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:27.481" level="INFO">Typing text 'Rezende' into text field 'xpath://*[@id="__next"]/div/div[2]/main/div/div/form/main/div[4]/div[2]/div[3]/input'.</msg>
+<status status="PASS" starttime="20220406 10:28:27.480" endtime="20220406 10:28:33.729"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${bairro}</arg>
+<arg>${bairroFaker}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:33.731" level="INFO">Typing text 'do Norte' into text field 'xpath://*[@id="__next"]/div/div[2]/main/div/div/form/main/div[4]/div[3]/div[1]/input'.</msg>
+<status status="PASS" starttime="20220406 10:28:33.729" endtime="20220406 10:28:39.939"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${logradouro}</arg>
+<arg>${logradouroFaker}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:39.941" level="INFO">Typing text 'Rua Stella da Paz, 52
+Serra Do Curral
+74093-839 da Paz / RO' into text field 'xpath://*[@id="__next"]/div/div[2]/main/div/div/form/main/div[4]/div[3]/div[2]/input'.</msg>
+<status status="PASS" starttime="20220406 10:28:39.940" endtime="20220406 10:28:46.210"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Clicar em Salvar no Mobile</arg>
+<arg>ELSE</arg>
+<arg>Clicar em Salvar no Desktop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Clicar em Salvar no Desktop" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>${div2}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20220406 10:28:46.213" endtime="20220406 10:28:50.527"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${salvar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:50.529" level="INFO">Clicking element 'xpath://*[@id="__next"]/div/div[2]/main/div/div/form/main/div[1]/button'.</msg>
+<status status="PASS" starttime="20220406 10:28:50.528" endtime="20220406 10:28:54.681"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:46.212" endtime="20220406 10:28:54.682"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:46.211" endtime="20220406 10:28:54.682"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:04.748" endtime="20220406 10:28:54.682"/>
+</kw>
+<kw name="Cadastrar Veículo" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Clicar no item de menu Veiculo no Mobile</arg>
+<arg>ELSE</arg>
+<arg>Clicar no item de menu Veiculo no Desktop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Clicar no item de menu Veiculo no Desktop" library="CadastroDeUsuárioMotoristaPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${adicionarVeiculo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 10:28:54.686" endtime="20220406 10:28:58.735"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${adicionarVeiculo}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:28:58.736" level="INFO">Clicking element 'id=menu-menuTitleVehicle'.</msg>
+<status status="PASS" starttime="20220406 10:28:58.735" endtime="20220406 10:29:02.860"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:54.686" endtime="20220406 10:29:02.861"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:54.685" endtime="20220406 10:29:02.861"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${placa}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:29:02.863" level="INFO">Clicking element 'xpath://*[@id="__next"]/div/div[2]/main/div/div/div/div/div/div/form/input'.</msg>
+<status status="PASS" starttime="20220406 10:29:02.861" endtime="20220406 10:29:06.931"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${placa}</arg>
+<arg>${PLACA_GERADA}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220406 10:29:06.933" level="INFO">Typing text 'NDR7152' into text field 'xpath://*[@id="__next"]/div/div[2]/main/div/div/div/div/div/div/form/input'.</msg>
+<status status="PASS" starttime="20220406 10:29:06.932" endtime="20220406 10:29:13.099"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${salvarVeiculo}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:29:13.101" level="INFO">Clicking element 'xpath://*[@id="__next"]/div/div[2]/main/div/div/div/div/div/div/form/button'.</msg>
+<status status="PASS" starttime="20220406 10:29:13.100" endtime="20220406 10:29:17.208"/>
+</kw>
+<status status="PASS" starttime="20220406 10:28:54.683" endtime="20220406 10:29:17.209"/>
+</kw>
+<kw name="Ir para Home" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${MOBILE_DESKTOP} == 1</arg>
+<arg>Ir para Home no Mobile</arg>
+<arg>ELSE</arg>
+<arg>Ir para Home no Desktop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Ir para Home no Desktop" library="SolicitaçãoDeOrçamentosPage">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${home}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220406 10:29:17.213" endtime="20220406 10:29:21.255"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${home}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220406 10:29:21.257" level="INFO">Clicking element 'xpath://div[@id='menu-menuTitleHome']/h1[.='Página inicial']'.</msg>
+<status status="PASS" starttime="20220406 10:29:21.256" endtime="20220406 10:29:25.387"/>
+</kw>
+<status status="PASS" starttime="20220406 10:29:17.212" endtime="20220406 10:29:25.388"/>
+</kw>
+<status status="PASS" starttime="20220406 10:29:17.211" endtime="20220406 10:29:25.388"/>
+</kw>
+<status status="PASS" starttime="20220406 10:29:17.209" endtime="20220406 10:29:25.389"/>
+</kw>
+<kw name="Finalizar teste" library="BrowserPage" type="TEARDOWN">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20220406 10:29:27.616" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-544.png"&gt;&lt;img src="selenium-screenshot-544.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220406 10:29:25.391" endtime="20220406 10:29:27.617"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220406 10:29:27.617" endtime="20220406 10:29:29.684"/>
+</kw>
+<status status="PASS" starttime="20220406 10:29:25.390" endtime="20220406 10:29:29.684"/>
+</kw>
+<status status="PASS" starttime="20220406 10:26:18.493" endtime="20220406 10:29:29.684"/>
+</test>
+<status status="PASS" starttime="20220406 10:26:18.099" endtime="20220406 10:29:29.687"/>
+</suite>
+<status status="PASS" starttime="20220406 10:26:18.083" endtime="20220406 10:29:29.691"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="CadastroDeUsuárioMotoristaTest">Tests.CadastroDeUsuárioMotoristaTest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
